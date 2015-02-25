@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+       <SaddemLabidi_TunisieMonetique>
+          <version>0.1.0</version>
+       </SaddemLabidi_TunisieMonetique>
+    </modules>
+ 
+    <global>
+	    <blocks>
+	        <tunisiemonetique>
+	            <class>SaddemLabidi_TunisieMonetique_Block</class>
+	        </tunisiemonetique>
+	    </blocks>
+        <models>
+            <tunisiemonetique>
+                <class>SaddemLabidi_TunisieMonetique_Model</class>
+            </tunisiemonetique>
+        </models>
+        <resources>
+            <tunisiemonetique_setup>
+                <setup>
+                    <module>SaddemLabidi_TunisieMonetique</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </tunisiemonetique_setup>
+            <tunisiemonetique_write>
+                <connection>
+                  <use>core_write</use>
+                </connection>
+            </tunisiemonetique_write>
+            <tunisiemonetique_read>
+               <connection>
+                <use>core_read</use>
+              </connection>
+            </tunisiemonetique_read>
+        </resources>
+    </global>
+ 
+<!-- declare default configuration values for this module -->
+    <default>
+<!-- 'payment' configuration section (tab) -->
+        <payment>
+<!-- 'tunisiemonetique' configuration group (fieldset) -->
+            <tunisiemonetique>
+                <active>1</active>
+                <model>tunisiemonetique/paymentMethod</model>
+                <order_status>pending</order_status>
+                <cctypes>AE,VI,MC,DI</cctypes>
+                <payment_action>authorize</payment_action>
+                <allowspecific>0</allowspecific>
+            </tunisiemonetique>
+         </payment>
+    </default>
+
+  	<frontend>
+	    <routers>
+	      <tunisiemonetique>
+	        <use>standard</use>
+	        <args>
+	          <module>SaddemLabidi_TunisieMonetique</module>
+	          <frontName>tunisiemonetique</frontName>
+	        </args>
+	      </tunisiemonetique>
+	    </routers>
+  	</frontend>
+</config>
